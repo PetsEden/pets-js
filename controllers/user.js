@@ -1,6 +1,14 @@
-var User = require('../models/user');
+var User = require('../models/User');
 var errorcode = require('./errorcode');
 var passport = require('passport');
+
+var createUser = function (req, res) {
+  const user = new User(req.body);
+  user.save()
+    .then(() => res.json({
+      id: user._id
+    }));
+};
 
 var signIn = function (req, res) {
   passport.authenticate('local.signin', function (err, user) {
@@ -67,4 +75,5 @@ var signUp = function (req, res) {
 module.exports = {
   signUp: signUp,
   signIn: signIn,
+  createUser: createUser
 };

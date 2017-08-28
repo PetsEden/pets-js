@@ -1,6 +1,6 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require('../models/user');
+var User = require('../models/User');
 
 module.exports = function () {
   passport.serializeUser(function (user, done) {
@@ -14,15 +14,15 @@ module.exports = function () {
   });
 
   // TODO
-  passport.use(new WeixinStrategy({
-    clientID: 'CLIENTID',
-    clientSecret: 'CLIENT SECRET',
-    callbackURL: 'CALLBACK URL',
-    requireState: false,
-    scope: 'snsapi_login'
-  }, function (accessToken, refreshToken, profile, done) {
-    done(null, profile);
-  }));
+  // passport.use(new WeixinStrategy({
+  //   clientID: 'CLIENTID',
+  //   clientSecret: 'CLIENT SECRET',
+  //   callbackURL: 'CALLBACK URL',
+  //   requireState: false,
+  //   scope: 'snsapi_login'
+  // }, function (accessToken, refreshToken, profile, done) {
+  //   done(null, profile);
+  // }));
 
   passport.use('local.signin', new LocalStrategy({
     usernameField: 'username',

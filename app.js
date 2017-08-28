@@ -9,13 +9,14 @@ var passportStategy = require('./controllers/passport-stategy');
 var passport = require('passport');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
+var oauth = require('./routes/oauth');
 
 passportStategy();
 
 var app = express();
 
+mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost:27017/pets');
 
 // view engine setup
@@ -33,8 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/api', api);
+app.use('/oauth', oauth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
