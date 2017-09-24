@@ -1,4 +1,4 @@
-var Pet = require('../models/pet');
+var Pet = require('../models/Pet');
 var errorcode = require('./errorcode');
 
 var postPet = function (req, res) {

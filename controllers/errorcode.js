@@ -9,6 +9,7 @@ var user_signin_error = [101004, '登录发生错误'];
 
 var pet_error = [102001,'发生错误'];
 
+var tweet_error = [103001,'发生错误'];
 
 module.exports = {
   ok,
@@ -18,5 +19,6 @@ module.exports = {
   user_signin_incorrect,
   user_signup_error,
   user_signin_error,
-  pet_error
+  pet_error,
+  tweet_error
 }
